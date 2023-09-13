@@ -1,0 +1,34 @@
+#!env/bin/python3
+from params import parse_location
+from coordinates import get_coordinates
+from weather_api_service import get_weather
+from weather_formatter import format_weather
+from exceptions import (ApiServiceError, 
+                        CantGetCoordinates, 
+                        ParamsError, 
+                        InvalidAPIKey)
+
+def main():
+    try:
+        location = parse_location()
+    except ParamsError:
+        print('В качестве параметра нужно указать локацию')
+        exit(1)
+    try:
+        coordinates = get_coordinates(location)
+    except CantGetCoordinates:
+        print('Не удалось получить координаты')
+        exit(1)
+    try:
+        weather = get_weather(coordinates)
+    except ApiServiceError:
+        print('Не удалось получить погоду от API сервиса')
+        exit(1)
+    except InvalidAPIKey:
+        print(r'Указан неверный API ключ. Для справки: https://openweathermap.org/faq#error401')
+        exit(1)
+    print(format_weather(weather))
+
+
+if __name__ == '__main__':
+    main()
