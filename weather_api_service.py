@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import NamedTuple, Literal
+from typing import NamedTuple, Literal, TypeAlias
 from enum import Enum
 import ssl
 import requests
@@ -11,7 +11,7 @@ from exceptions import ApiServiceError, InvalidAPIKey
 from coordinates import Coordinates
 
 
-Celsius = int
+Celsius: TypeAlias = int
 
 
 class WeatherType(Enum):
