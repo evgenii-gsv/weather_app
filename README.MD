@@ -24,7 +24,7 @@ source env/bin/activate
 ```
 5. Install dependencies by running `pip install -r requirements.txt`.
 6. To run the program use `python3 weather "<address>"` or `python3 weather` to see the weather in default location. If your location consists of one word without spaces, you can write it without quotation marks. If it contains spaces, you need to use quotation marks.
-7. OPTIONAL. On Linux you can add a link to a folder in your $PATH variable, this way you can use the program from anywhere just by typing `weather`. This way you also don't need to activate virtual environment in the future. To do so you need to run this command from the root folder of the project:
+7. OPTIONAL. On Linux you can add a link to a folder in your $PATH variable, this way you can use the program from anywhere just by typing `weather`. Your virtual environment has to be however activated. To do so you need to run this command from the root folder of the project to create a link:
 ```bash
 sudo ln -s $(pwd)/weather /usr/local/bin/
 ```

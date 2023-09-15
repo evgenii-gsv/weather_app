@@ -1,4 +1,4 @@
-#!env/bin/python3
+#!/usr/bin/env python3
 from params import parse_location
 from coordinates import get_coordinates
 from weather_api_service import get_weather
